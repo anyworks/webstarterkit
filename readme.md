@@ -14,6 +14,18 @@
 - tsファイルに、scriptをES6として記述可能(出力はES5)
 - 各ファイルは、変更されたタイミングで即、コンパイル／トランスパイルされる
 
+## 使い方
+
+Clone or Donwload後
+
+1. npm install
+2. npm run dev
+
+を実行すれば、src配下のファイルが自動コンパイルされ、
+dist配下に、結果が出力されるので、出力ディレクトリのファイルに対して
+Live Server(Visual Studio Codeのプラグイン）などで監視させておけば、
+編集後、即結果反映可能な環境が出来上がります
+
 ## こだわり
 
 - Task runner, WebPackなど、ある意味冗長なライブラリに悩まされない
@@ -54,7 +66,7 @@ HTMLでUIを作成する際、Gulpなどのタスクランナー、WebPackなど
 DEVはHTML,CSS,Scriptすべてのタスクを一括で起動するだけのものとなっている
 ローカルモジュール起動なのが、こだわりポイント
 
-```javascript
+``` javascript
 "scripts": {
     "script": "node_modules/.bin/tsc --watch",
     "html": "node_modules/.bin/pug ./src --watch --out ./dist/ --pretty",
