@@ -1,0 +1,14 @@
+{
+    "typeAcquisition": {
+        "include": []
+      },
+    
+    "compilerOptions": {
+      "jsx": "react",
+      "module": "commonjs",
+      "rootDir": "src",  
+      "target": "es5",
+      "outDir": "dist"
+    },
+    "exclude": ["node_modules", "**/node_modules/*"]
+  }
