@@ -71,7 +71,7 @@ HTMLでUIを作成する際、Gulpなどのタスクランナー、WebPackなど
     "script": "node_modules/.bin/tsc --watch",
     "html": "node_modules/.bin/pug ./src --watch --out ./dist/ --pretty",
     "css": "node_modules/.bin/node-sass src/scss -w -o ./dist/src/css -r",
-    "dev": "concurrently \"npm run script-tsxform\" \"npm run html\" \"npm run css\""
+    "dev": "concurrently \"npm run script\" \"npm run html\" \"npm run css\""
   }
 ```
 

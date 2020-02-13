@@ -6,8 +6,7 @@
     "script": "node_modules/.bin/tsc --watch",
     "html": "node_modules/.bin/pug ./src --watch --out ./dist/ --pretty",
     "css": "node_modules/.bin/node-sass src/scss -w -o ./dist/css -r",
-    "dev": "concurrently \"npm run script\" \"npm run html\" \"npm run css\"",
-    "elec" : "node_modules/.bin/electron dist/main.js"
+    "dev": "concurrently \"npm run script\" \"npm run html\" \"npm run css\""
   },
   "author": "anyworks",
   "license": "ISC",
