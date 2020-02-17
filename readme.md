@@ -43,9 +43,9 @@ HTMLでUIを作成する際、Gulpなどのタスクランナー、WebPackなど
 
 | 作成されるもの | 利用ライブラリ | 対象ファイル    | 出力ファイル        |
 | -------------- | -------------- | --------------- | ------------------- |
-| Script         | typescript     | src/*.ts        | dist/src/*.js       |
-| React script   | typescript     | src/react/*.tsx | dist/src/react/*.js |
-| HTML           | pug            | src/*.pug       | dist/src/*.html     |
+| Script         | typescript     | src/*.ts        | dist/*.js       |
+| React script   | typescript     | src/react/*.tsx | dist/react/*.js |
+| HTML           | pug            | src/*.pug       | dist/*.html     |
 | CSS            | node-sass      | src/scss/*.scss | dist/css/*.css      |
 
 - 現バージョンのtypescriptがReactのコンパイルにも対応しているようなので、トランスパイ
@@ -56,11 +56,12 @@ HTMLでUIを作成する際、Gulpなどのタスクランナー、WebPackなど
 | 役割（対象ファイル変更の都度） | タスク名 |
 | ------------------------------ | -------- |
 | HTML作成                       | html     |
-| CSS作成                        | css      |
+| CSS作成                        | css,cssw      |
 | Script/React作成               | script   |
 | HTML,CSS,Scriptすべてを作成    | dev      |
 
-    CSSに関しては、DEVタスクの初回起動時は、作成が行われないので注意
+~~CSSに関しては、DEVタスクの初回起動時は、作成が行われないので注意~~  
+pre compile用タスクを追加して対応
 
 実際のpackage.jsonのTASKは以下の通り  
 とりあえず、HTML,CSS,Scriptを別々に起動する事もないと思うので
@@ -70,8 +71,10 @@ HTMLでUIを作成する際、Gulpなどのタスクランナー、WebPackなど
 "scripts": {
     "script": "node_modules/.bin/tsc --watch",
     "html": "node_modules/.bin/pug ./src --watch --out ./dist/ --pretty",
-    "css": "node_modules/.bin/node-sass src/scss -w -o ./dist/src/css -r",
-    "dev": "concurrently \"npm run script\" \"npm run html\" \"npm run css\""
+    "css": "node_modules/.bin/node-sass src/scss  -o ./dist/css -r",
+    "cssw": "node_modules/.bin/node-sass src/scss -w -o ./dist/css -r",
+    "dev": "concurrently \"npm run script\" \"npm run html\" \"npm run css\" \"npm run cssw\"",
+    "elec": "node_modules/.bin/electron dist/main.js"
   }
 ```
 
